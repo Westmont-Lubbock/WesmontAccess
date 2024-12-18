@@ -1,0 +1,21 @@
+name: Deploy to Azure Blob Storage
+
+on:
+  push:
+    branches:
+      - main # Deploy when pushing to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Upload to Azure Blob Storage
+      uses: Azure/azure-storage-blob-upload@v1
+      with:
+        source-dir: ./ # Path to your static files (adjust if needed)
+        container-name: $web
+        account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+        account-key: ${{ secrets.AZURE_STORAGE_KEY }}
