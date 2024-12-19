@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+    .login-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4A567D;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3a4664;
+    }
+  </style>
+</head>
+<body>
+<div class="login-container">
+  <h2>Login</h2>
+  <form id="login-form">
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <input type="password" id="password" placeholder="Enter your password" required />
+    <button type="submit">Login</button>
+  </form>
+  <p id="error-message" style="color: red; display: none;">Invalid login credentials</p>
+</div>
+
+
+
+<script>
+  // Simulate a test account
+  const testAccount = {
+    username: "a@a.com",
+    password: "1234"
+  };
+
+  // Handle form submission
+  document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const enteredUsername = document.getElementById("username").value;
+    const enteredPassword = document.getElementById("password").value;
+
+    const loginMessage = document.getElementById("loginMessage");
+
+
+
+    //Credential Validattion
+
+    if (!(enteredUsername === testAccount.username && enteredPassword === testAccount.password)) {
+      loginMessage.textContent = "Invalid username or password.";
+      loginMessage.style.color = "red";
+    } else {
+      loginMessage.textContent = "Login successful! Redirecting...";
+      loginMessage.style.color = "green";
+
+      // Redirect to dash.html after a short delay
+
+      window.location.href = "dash.html";
+      // Delay of 1.5 seconds for user feedback
+
+    }
+  });
+</script>
+</body>
+</html>
