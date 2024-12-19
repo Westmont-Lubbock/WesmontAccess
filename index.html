@@ -3,81 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Westmont Access - Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #f4f4f9;
-    }
-    .login-container {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
-    }
-    .login-container h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #4A567D;
-    }
-    .login-container input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .login-container button {
-      width: 100%;
-      padding: 10px;
-      background: #4A567D;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .login-container button:hover {
-      background: #3a4664;
-    }
-  </style>
+  <title>Westmont Access</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="login-container">
-  <h1>Login</h1>
-  <form id="login-form">
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-  </form>
-</div>
-<script>
-  document.getElementById('login-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    // Send to backend for validation
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await response.json();
-    if (data.success) {
-      alert('Login successful!');
-      window.location.href = '/dashboard'; // Redirect to dashboard
-    } else {
-      alert('Invalid login credentials');
-    }
-  });
-</script>
+<header>
+  <div class="logo">
+    <h1>Westmont Access</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="login.html" class="button">Login</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="home" class="hero">
+    <h2>Welcome to Westmont Access</h2>
+    <p>Your gateway to seamless access and information.</p>
+    <a href="#services" class="cta">Learn More</a>
+  </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Westmont Access is your one-stop solution for managing and accessing resources with ease.</p>
+  </section>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Service 1</h3>
+        <p>Short description of service 1.</p>
+      </div>
+      <div class="card">
+        <h3>Service 2</h3>
+        <p>Short description of service 2.</p>
+      </div>
+      <div class="card">
+        <h3>Service 3</h3>
+        <p>Short description of service 3.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2024 Westmont Access. All rights reserved.</p>
+</footer>
 </body>
 </html>
